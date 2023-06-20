@@ -24,16 +24,17 @@ public:
 	// Sets default values for this component's properties
 	URTS_SmoothCameraComponent();
 
-	/* Constructor service агтсешщты*/
-	void SetupDefaults();
-	void SetupSpringArm();
-	void SetupCamera();
+	UFUNCTION(BlueprintCallable, Category = "SmoothCamera")
+	void MoveCameraLeftRight(const float Value);
 
 	UFUNCTION(BlueprintCallable, Category = "SmoothCamera")
-	void MoveCameraLeftRight(float Value);
+	void MoveCameraUpDown(const float Value);
 
 	UFUNCTION(BlueprintCallable, Category = "SmoothCamera")
-	void MoveCameraUpDown(float Value);
+	void MoveCameraUpDownPerUnit(const float Value);
+
+	UFUNCTION(BlueprintCallable, Category = "SmoothCamera")
+	void MoveCameraLeftRightPerUnit(const float Value);
 
 	UFUNCTION(BlueprintCallable, Category = "SmoothCamera")
 	void RotateCameraPressed();
@@ -98,8 +99,8 @@ protected:
 	float MaxCameraDistance;
 
 	/** Distance from cursor to edge of screen to start scrolling */
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "SmoothCamera", meta = (ClampMin = 0))
-	int32 CameraScrollThreshold;
+	//UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "SmoothCamera", meta = (ClampMin = 0))
+	//int32 CameraScrollThreshold;
 
 public:	
 	// Called every frame
@@ -126,6 +127,11 @@ private:
 	APawn* GetOwningPawn() const;
 
 private:
+	/* Constructor service агтсешщты*/
+	void SetupDefaults();
+	void SetupSpringArm();
+	void SetupCamera();
+
 	float inline GetMaxAlpha(float difference) const;
 	float inline GetMinAlpha(float difference) const;
 	void MoveCamera(const float CameraLeftRightAxisValue, const float CameraUpDownAxisValue, const float DeltaTime);

@@ -14,7 +14,6 @@ URTS_SmoothCameraComponent::URTS_SmoothCameraComponent()
 
 	/* Initialize Camera */
 	SetupCamera();
-
 }
 
 void URTS_SmoothCameraComponent::SetupDefaults()
@@ -96,6 +95,16 @@ void URTS_SmoothCameraComponent::MoveCameraLeftRight(const float Value)
 void URTS_SmoothCameraComponent::MoveCameraUpDown(const float Value)
 {
 	MoveCamera(0, Value, 1);
+}
+
+void URTS_SmoothCameraComponent::MoveCameraUpDownPerUnit(const float Value)
+{	
+	MoveCamera(0, (20 * Value) / CameraSpeed, 1);
+}
+
+void URTS_SmoothCameraComponent::MoveCameraLeftRightPerUnit(const float Value)
+{
+	MoveCamera((20 * Value) / CameraSpeed, 0, 1);
 }
 
 /** Sets the axis based on the configured input */

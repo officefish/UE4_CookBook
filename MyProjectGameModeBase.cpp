@@ -3,6 +3,13 @@
 
 #include "MyProjectGameModeBase.h"
 
+AMyProjectGameModeBase::AMyProjectGameModeBase() 
+	:
+	AGameModeBase()
+{
+	DefaultPawnClass = ARTSCameraPawn::StaticClass();
+}
+
 void AMyProjectGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();

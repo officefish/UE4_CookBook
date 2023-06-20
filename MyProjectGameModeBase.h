@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "UserProfile.h"
+#include "RTSCameraPawn.h"
+
 #include "MyProjectGameModeBase.generated.h"
 
 /**
@@ -14,6 +16,8 @@ UCLASS()
 class MYPROJECT_API AMyProjectGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+	AMyProjectGameModeBase();
 
 public:
 
